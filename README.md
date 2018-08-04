@@ -8,6 +8,8 @@
 
 [![ForTheBadge powered-by-electricity](http://ForTheBadge.com/images/badges/powered-by-electricity.svg)](http://ForTheBadge.com)
 
+[![Build Status](https://travis-ci.org/zeziba/ChatServerMaster.svg?branch=master)](https://travis-ci.org/zeziba/ChatServerMaster)
+
 The is an open source version of a chat, the chat will save all input from the users with the option
 to disable this feature.
 
