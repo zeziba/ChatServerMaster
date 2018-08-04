@@ -7,4 +7,5 @@ only required information being the ip address and the port number to connect to
 Features to be implemented:
     - Users and passwords
     - Encrypted data streams
+    - Database to store chats
 
