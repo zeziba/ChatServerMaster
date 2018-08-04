@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="connect-src * 'unsafe-inline';">
+    <script src="chat_client.js"></script>
+
+    <style>
+        table {
+            border: 2px solid black
+        }
+
+        input {
+            width: 300px
+        }
+
+        select {
+            width: 300px
+        }
+
+        textarea {
+            width: 513px;
+            border: 2px solid black
+        }
+
+        #bntConnect {
+            width: 100px
+        }
+
+        #bntDisconnect {
+            width: 100px
+        }
+
+        #bntSent {
+            width: 100px
+        }
+    </style>
+
+    <title>Chat Service</title>
+</head>
+<body>
+<h1>Chat Service</h1>
+<!-- WebSocket Connection Parameters Table -->
+<table>
+    <tr>
+        <td width="200px">Protocol</td>
+        <td>
+            <select id="protocol">
+                <option value="ws" selected="selected">ws</option>
+                <option value="wss">wss</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Host</td>
+        <td><input type="text" id="host"/></td>
+    </tr>
+    <tr>
+        <td>Port</td>
+        <td><input type="text" id="port"/></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input id="bntConnect" type="button" value="connect" onclick="onConnectClick()">
+            <input id="bntDisconnect" type="button" value="disconnect" disabled="disabled"
+                   onclick="onDisconnectClick()">
+        </td>
+    </tr>
+</table>
+<!-- Send message Table -->
+<table>
+    <tr>
+        <td width="200px">Message</td>
+        <td><input type="text" id="message"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+            <input id="bntSent" type="button" value="Send Message" disabled="disabled" onclick="onSendClick()">
+        </td>
+    </tr>
+</table>
+<textarea id="incomingMessage" rows="10" cols="20" disabled="disabled"></textarea>
+</body>
+</html>

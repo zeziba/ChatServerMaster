@@ -1,0 +1,16 @@
+sudo: false
+
+language: python
+
+python:
+  - 3.6
+
+install:
+  - pip install codecov
+  - pip install websockets
+
+script:
+  - coverage run tests/test_server.py
+
+after_success:
+  - codecov
