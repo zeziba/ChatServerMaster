@@ -1,15 +1,20 @@
+|Maintenance yes|
 .. |Maintenance yes| image:: https://img.shields.io/badge/Maintained%3F-yes-green.svg
     :target: https://github.com/zeziba/ChatServerMaster/graphs/commit-activity
 
+|forthebadge made-with-python|
 .. |forthebadge made-with-python| image:: http://ForTheBadge.com/images/badges/made-with-python.svg
     :target: https://www.python.org/
 
+|MIT license|
 .. |MIT license| image:: https://img.shields.io/badge/License-MIT-blue.svg
     :target: https://github.com/zeziba/ChatServerMaster/blob/master/LICENSE
 
+|GitHub issues|
 .. |GitHub issues| image:: https://img.shields.io/github/issues/Naereen/StrapDown.js.svg
     :target: https://github.com/zeziba/ChatServerMaster/issues4
 
+|ForTheBadge powered-by-electricity|
 .. |ForTheBadge powered-by-electricity| image:: http://ForTheBadge.com/images/badges/powered-by-electricity.svg
     :target: http://ForTheBadge.com
 
