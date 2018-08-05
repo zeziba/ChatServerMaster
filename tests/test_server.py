@@ -2,8 +2,6 @@ import asyncio
 import sys
 import unittest
 
-from Server import server
-
 
 def async_test(f):
     def wrapper(*args, **kwargs):
@@ -22,6 +20,8 @@ class TestMethods(unittest.TestCase):
         # TODO:
         #   Fix this test method to work on the handler
         return
+
+        from Server import server
 
         class MyOut(object):
             def __init__(self):
