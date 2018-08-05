@@ -7,19 +7,21 @@ table_name = "CHAT_DATA"
 item_name = "IP_ADDR"
 chat = "chat_data"
 
-try:
-    with sqlite3.connect(join(_path_, 'server.sqlite')) as conn:
-        cursor = conn.cursor()
-        cursor.execute('SELECT SQLITE_VERSION()')
-        data = cursor.fetchone()
-        print("SQLite Version: %s" % data)
-        cursor.execute('CREATE TABLE IF NOT EXISTS "%s" ("%s" TEXT NOT NULL , '
-                       '"TIMESTAMP" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, "%s" TEXT)' %
-                       (table_name, item_name, chat))
-except Exception as error:
-    print("Failed to load Database")
-    print(error)
-    print(Exception)
+
+def create_database(_path, table1, item1, item2):
+    try:
+        with sqlite3.connect(join(_path, 'server.sqlite')) as conn:
+            cursor = conn.cursor()
+            cursor.execute('SELECT SQLITE_VERSION()')
+            data = cursor.fetchone()
+            print("SQLite Version: %s" % data)
+            cursor.execute('CREATE TABLE IF NOT EXISTS "%s" ("%s" TEXT NOT NULL , '
+                           '"TIMESTAMP" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, "%s" TEXT)' %
+                           (table1, item1, item2))
+    except Exception as error:
+        print("Failed to load Database")
+        print(error)
+        print(Exception)
 
 
 class DatabaseManager:
@@ -35,7 +37,7 @@ class DatabaseManager:
 
     @property
     def database(self):
-        return self.database
+        return self._database
 
     @database.setter
     def database(self, item: object):
@@ -48,9 +50,9 @@ class DatabaseManager:
     @cmd_list.setter
     def cmd_list(self, _data=None):
         if _data is None:
-            self.cmd_list = []
+            self._cmd_list = []
         else:
-            self.cmd_list = _data
+            self._cmd_list = _data
 
     @property
     def alive(self):
@@ -68,7 +70,9 @@ class DatabaseManager:
         self.database.commit()
         self.close()
 
-    def open(self, database):
+    def open(self, database=None):
+        if database is None:
+            database = self.path
         if not self.alive:
             self.database = sqlite3.connect(database=join(database, "server.sqlite"))
             self.alive = True
@@ -76,7 +80,12 @@ class DatabaseManager:
             print("Database is not active!")
 
     def close(self):
-        pass
+        if self.alive:
+            self.commit()
+            self.database.close()
+            self.alive = False
+        else:
+            print("Database is not active.")
 
     def _give_cmd(self, command: list or dict, args: list or dict = None):
         c = self.database.cursor()
@@ -113,3 +122,7 @@ class DatabaseManager:
             _data = sorted(c.fetchall())
             while _data:
                 yield _data.pop()
+
+
+if __name__ == "__main__":
+    create_database(_path_, table_name, item_name, chat)
