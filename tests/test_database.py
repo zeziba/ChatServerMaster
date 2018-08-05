@@ -20,6 +20,7 @@ class TestMethods(unittest.TestCase):
         out = MyOut()
         try:
             sys.stdout = out
+            from Server import server
         finally:
             sys.stdout = std_out
 

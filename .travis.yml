@@ -11,6 +11,7 @@ install:
 
 script:
   - coverage run tests/test_server.py
+  - coverage run tests/test_database.py
 
 after_success:
   - codecov
