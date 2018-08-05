@@ -10,6 +10,8 @@ install:
   - pip install websockets
 
 script:
+  - python tests/test_server.py
+  - python tests/test_database.py
   - coverage run tests/test_server.py
   - coverage run tests/test_database.py
 
