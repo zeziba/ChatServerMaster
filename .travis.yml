@@ -6,8 +6,8 @@ python:
   - 3.6
 
 install:
+  - pip install ./requirements.txt
   - pip install codecov
-  - pip install websockets
 
 script:
   - python tests/test_server.py

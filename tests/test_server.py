@@ -41,11 +41,11 @@ class TestMethods(unittest.TestCase):
                 pass
 
         std_out = sys.stdout
-        handle = server.handle(ws(), None)
 
         out = MyOut()
         try:
             sys.stdout = out
+            handle = server.handle(ws(), None)
         finally:
             sys.stdout = std_out
 
