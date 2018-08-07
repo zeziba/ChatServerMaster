@@ -4,8 +4,6 @@
 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/zeziba/ChatServerMaster/blob/master/LICENSE)
 
-[![GitHub issues](https://img.shields.io/github/issues/zeziba/StrapDown.js.svg)](https://github.com/zeziba/ChatServerMaster/issues/)
-
 [![ForTheBadge powered-by-electricity](http://ForTheBadge.com/images/badges/powered-by-electricity.svg)](http://ForTheBadge.com)
 
 [![Build Status](https://travis-ci.org/zeziba/ChatServerMaster.svg?branch=master)](https://travis-ci.org/zeziba/ChatServerMaster)
