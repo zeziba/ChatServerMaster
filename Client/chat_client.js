@@ -1,7 +1,7 @@
-var websocket = null;
-var ws_protocol = null;
-var ws_host = null;
-var ws_port = null;
+let websocket = null;
+let ws_protocol = null;
+let ws_host = null;
+let ws_port = null;
 
 
 function onConnectClick() {
@@ -104,7 +104,7 @@ function onSendClick() {
     }
 
     let message = document.getElementById("message").value;
-    // Defunct encryption - likley not to implement
+    // Defunct encryption - likely not to implement
     // TODO: delete later if not using client encryption
     // let pwd = "password";
     // message = await encrypt(message, pwd, 'AES-GCM', 256, 12).then(encrypted => {

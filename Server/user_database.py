@@ -31,8 +31,7 @@ class UserManager:
     """
     This module will allow usernames and passwords to be stored and recovered from a database.
 
-    TODO:
-        Check security level of storage to ensure that it is not easy to break.
+    TODO: Check security level of storage to ensure that it is not easy to break.
     """
 
     def __init__(self, path: str = _path_):

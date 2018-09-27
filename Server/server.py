@@ -1,18 +1,24 @@
 import argparse
 import asyncio
 
+import database_server
 import websockets
 
 
-async def handle(websocket, path):
+async def handle(websocket, path, database=database_server.DatabaseManager):
     message = await websocket.recv()
     print(message)
+
+    with database as db:
+        db.add_chat(path, message)
 
     await websocket.send("Received: {}".format(message))
 
 
 def start_server(_h: str, _p: int):
-    server = websockets.serve(handle, _h, _p)
+    database = database_server.DatabaseManager()
+
+    server = websockets.serve(handle, _h, _p, database)
 
     asyncio.get_event_loop().run_until_complete(server)
 
@@ -27,6 +33,8 @@ if __name__ == "__main__":
     parser.add_argument("Port")
 
     args = parser.parse_args()
+
+    print(args)
 
     host = args.IP
     port = int(args.Port)

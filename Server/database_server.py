@@ -18,6 +18,12 @@ def create_database(_path, table1, item1, item2):
             cursor.execute('CREATE TABLE IF NOT EXISTS "%s" ("%s" TEXT NOT NULL , '
                            '"TIMESTAMP" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, "%s" TEXT)' %
                            (table1, item1, item2))
+            global table_name
+            global item_name
+            global chat
+            table_name = table1
+            item_name = item1
+            chat = item2
     except Exception as error:
         print("Failed to load Database")
         print(error)
@@ -109,16 +115,11 @@ class DatabaseManager:
     def _rollback(self):
         self.database.rollback()
 
-    def add_chat(self, ip, _data):
-        self.cmd_list.append((ip, _data))
+    def add_chat(self, table, _data):
+        self.cmd_list.append((table, _data))
 
     def get_chats(self, override: str = chat):
         with self.database.cursor as c:
-            try:
-                c.execute("SELECT {} FROM '{}'".format(override, table_name))
-            except sqlite3.OperationalError as error:
-                print("{} does not exist in the database".format(override))
-                return False
             _data = sorted(c.fetchall())
             while _data:
                 yield _data.pop()

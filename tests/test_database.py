@@ -288,7 +288,7 @@ class TestMethods(unittest.TestCase):
         database = database_server.DatabaseManager(_dir)
 
         with database as db:
-            self.assertEqual(database.alive, True)
+            self.assertEqual(db.alive, True)
         self.assertEqual(database.alive, False)
 
 

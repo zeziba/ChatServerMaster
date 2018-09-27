@@ -17,8 +17,7 @@ class TestMethods(unittest.TestCase):
 
     @async_test
     def test_handeler(self):
-        # TODO:
-        #   Fix this test method to work on the handler
+        # TODO: Fix this test method to work on the handler
         return
 
         from Server import server
@@ -33,7 +32,7 @@ class TestMethods(unittest.TestCase):
             def __str__(self):
                 return "".join(self.data)
 
-        class ws():
+        class ws:
             def recv(self):
                 return "apple"
 
