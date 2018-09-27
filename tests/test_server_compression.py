@@ -33,18 +33,19 @@ class TestMethods(unittest.TestCase):
 
         data_compressed = compression.encode(data)
 
-        self.assertLessEqual(data, data_compressed)
+        # TODO: This is the wrong way to do this
+        self.assertLessEqual(len(str(data_compressed)), len(data))
 
     def test_decompression(self):
         from Server import compression
 
-        data = "hello" * 800
+        data = "hello" * 100
 
         data_compressed = compression.encode(data)
 
         data_uncompressed = compression.decode(data_compressed)
 
-        self.assertEqual(data, data_uncompressed)
+        self.assertEqual(data, str(data_uncompressed.decode('utf-8')))
 
 
 if __name__ == "_main__":
