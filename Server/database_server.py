@@ -1,4 +1,5 @@
 import sqlite3
+from os import mkdir
 from os.path import join
 from time import sleep
 
@@ -10,24 +11,23 @@ chat = "chat_data"
 
 def create_database(_path, table1, item1, item2):
     try:
-        with sqlite3.connect(join(_path, 'server.sqlite')) as conn:
-            cursor = conn.cursor()
-            cursor.execute('SELECT SQLITE_VERSION()')
-            data = cursor.fetchone()
-            print("SQLite Version: %s" % data)
-            cursor.execute('CREATE TABLE IF NOT EXISTS "%s" ("%s" TEXT NOT NULL , '
-                           '"TIMESTAMP" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, "%s" TEXT)' %
-                           (table1, item1, item2))
-            global table_name
-            global item_name
-            global chat
-            table_name = table1
-            item_name = item1
-            chat = item2
-    except Exception as error:
-        print("Failed to load Database")
-        print(error)
-        print(Exception)
+        mkdir(_path)
+    except FileExistsError:
+        pass
+    with sqlite3.connect(join(_path, 'server.sqlite')) as conn:
+        cursor = conn.cursor()
+        cursor.execute('SELECT SQLITE_VERSION()')
+        data = cursor.fetchone()
+        print("SQLite Version: %s" % data)
+        cursor.execute('CREATE TABLE IF NOT EXISTS "%s" ("%s" TEXT NOT NULL , '
+                       '"TIMESTAMP" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, "%s" TEXT)' %
+                       (table1, item1, item2))
+        global table_name
+        global item_name
+        global chat
+        table_name = table1
+        item_name = item1
+        chat = item2
 
 
 class DatabaseManager:
