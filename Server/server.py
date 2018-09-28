@@ -8,18 +8,34 @@ import websockets
 
 class Server:
     def __init__(self):
-        _p = ospath.join(ospath.expanduser("~"), "Chat Server")
+        _p = ospath.join(ospath.expanduser("~"), "Chat Server", "chat")
+        _pi = ospath.join(ospath.expanduser("~"), "Chat Server", "ip")
         database_server.create_database(_p, database_server.table_name, database_server.item_name, database_server.chat)
-        self._database = database_server.DatabaseManager(_p)
+        database_server.create_database(_pi, "IP_LOGS", "IP_ADDRS", "ORIGIN")
+        self._database_chat_log = database_server.DatabaseManager(_p)
+        self._database_ip = database_server.DatabaseManager(_pi)
+        self._recently_connected = set()
 
     async def handle(self, websocket, path):
-        message = await websocket.recv()
-        print(message)
+        self._recently_connected.add(websocket)
 
-        with self._database as db:
-            db.add_chat(path, message)
+        try:
+            message = await websocket.recv()
 
-        await websocket.send("Received: {}".format(message))
+            with self._database_chat_log as db:
+                db.add_chat(path, message)
+
+            with self._database_ip as db:
+                db.add_chat("{}:{}".format(websocket.host, websocket.port), websocket.origin)
+
+            print("USER: {} @ {}, Message: {}".format(websocket.origin, "{}:{}".
+                                                      format(websocket.host, websocket.port), message))
+            # await websocket.send("Received: {}".format(message))
+
+            for user in self._recently_connected:
+                await user.send("Received: {}".format(message))
+        finally:
+            self._recently_connected.remove(websocket)
 
     def start_server(self, _h: str, _p: int):
         server = websockets.serve(ws_handler=self.handle, host=_h, port=_p)
