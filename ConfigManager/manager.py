@@ -4,7 +4,7 @@ import platform
 from os.path import join
 
 __os_type = platform.system()
-__home = "~" if "Linux" in __os_type else join(os.getenv("APPDATA"), "chat_server")
+__home = os.path.join(os.path.expanduser("~"), "Chat Server")
 
 if "Windows" in __os_type:
     try:
@@ -16,7 +16,7 @@ if "Windows" in __os_type:
 
 default_config = {
     "timestamp": {
-        "default": False
+        "default": 'False'
     },
     "default_paths": {
         "database": join(__home, "database", "chat.sqlite"),
@@ -25,7 +25,7 @@ default_config = {
         "ip": "127.0.0.1"
     },
     "default_host": {
-        "host": 5005
+        "host": '5005'
     }
 }
 
