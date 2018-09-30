@@ -47,7 +47,7 @@ class Server:
         asyncio.get_event_loop().run_forever()
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Starts a chat server.")
     parser.add_argument("IP")
     parser.add_argument("Port")
@@ -64,3 +64,7 @@ if __name__ == "__main__":
     ser = Server()
 
     ser.start_server(host, port)
+
+
+if __name__ == "__main__":
+    main()
