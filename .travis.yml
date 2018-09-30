@@ -12,7 +12,7 @@ install:
   - pip install -r requirements.txt
 
 script:
-- nosetests --with-coverage --exclude-dir-file=setup.py
+- nosetests --exclude-dir-file=setup.py --with-coverage
 
 after_success:
 - coveralls
