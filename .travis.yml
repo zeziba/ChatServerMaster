@@ -6,15 +6,13 @@ python:
   - 3.6
 
 before_script:
-- pip install coveralls coverage setuptools
+- pip install coveralls coverage setuptools nose
 
 install:
   - pip install -r requirements.txt
 
 script:
-- pytest --with-coverage ConfigManger/
-- pytest --with-coverage Server/
-- pytest --cov=ChatServerMaster tests/
+- nosetests --with-coverage tests/
 
 after_success:
 - coveralls
