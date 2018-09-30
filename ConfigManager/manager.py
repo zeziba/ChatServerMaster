@@ -33,7 +33,7 @@ default_name = "default_config.ini"
 
 
 def create_config(name: str = default_name, default_con: dict = default_config):
-    with open(join(__home, name), "w+") as file:
+    with open(join(__home, name) if name == default_name else name, "w+") as file:
         temp = configparser.ConfigParser()
         for header in default_con.keys():
             temp.add_section("{}".format(header))
