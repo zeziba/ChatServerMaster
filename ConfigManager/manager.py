@@ -32,8 +32,11 @@ default_config = {
 default_name = "default_config.ini"
 
 
-def create_config(name: str = default_name, default_con: dict = default_config):
-    with open(join(__home, name), "w+") as file:
+def create_config(name: str = join(__home, default_name), default_con: dict = default_config):
+    import os.path
+    if not os.path.isdir(os.path.dirname(name)):
+        os.makedirs(os.path.dirname(name))
+    with open(name, "w+") as file:
         temp = configparser.ConfigParser()
         for header in default_con.keys():
             temp.add_section("{}".format(header))

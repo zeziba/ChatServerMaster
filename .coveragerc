@@ -1,0 +1,17 @@
+[run]
+source = ChatServerMaster
+omit =
+    */python?.?/*
+    */site-packages/nose/*
+    *__init__*
+    *LICENSE*
+    *.txt*
+    *setup.py*
+    *?.yml*
+    */github/*
+    *?.md*
+    */tests/*
+    */doc/*
+    */env/*
+    */Win*/*
+    */.git/*

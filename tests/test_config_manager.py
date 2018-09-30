@@ -32,26 +32,30 @@ class TestMethods(unittest.TestCase):
 
         from ConfigManager import manager
 
-        manager.create_config()
+        manager.create_config(_dir)
         exists = os.path.isfile(_dir)
 
         self.assertTrue(exists)
 
     def test_open_ini(self):
         from ConfigManager import manager
+        import os.path
+        _dir = os.path.join(os.path.expanduser("~"), "Chat Server", "default_config.ini")
 
-        manager.create_config()
+        manager.create_config(_dir)
 
         import configparser
 
-        self.assertIsInstance(manager.open_config(), configparser.ConfigParser)
+        self.assertIsInstance(manager.open_config(_dir), configparser.ConfigParser)
 
     def test_selection_ini(self):
         from ConfigManager import manager
+        import os.path
+        _dir = os.path.join(os.path.expanduser("~"), "Chat Server", "default_config.ini")
 
-        manager.create_config()
+        manager.create_config(_dir)
 
-        self.assertEqual(manager.config_selection(), manager.default_config)
+        self.assertEqual(manager.config_selection(_dir), manager.default_config)
 
 
 if __name__ == "_main__":

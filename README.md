@@ -1,8 +1,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/zeziba/ChatServerMaster/graphs/commit-activity)
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/zeziba/ChatServerMaster/blob/master/LICENSE)
 [![Build Status](https://travis-ci.org/zeziba/ChatServerMaster.svg?branch=master)](https://travis-ci.org/zeziba/ChatServerMaster)
-[![codecov](https://codecov.io/gh/zeziba/ChatServerMaster/branch/master/graph/badge.svg)](https://codecov.io/gh/zeziba/ChatServerMaster)
-
+[![Coverage Status](https://coveralls.io/repos/github/zeziba/ChatServerMaster/badge.svg?branch=master)](https://coveralls.io/github/zeziba/ChatServerMaster?branch=master)
 
 
 [![ForTheBadge powered-by-electricity](http://ForTheBadge.com/images/badges/powered-by-electricity.svg)](http://ForTheBadge.com)

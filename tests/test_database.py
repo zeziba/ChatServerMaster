@@ -33,7 +33,10 @@ class TestMethods(unittest.TestCase):
         correct_out = "SQLite Version: "
         _dir = join(getcwd(), "test_data")
 
-        remove(join(_dir, "server.sqlite"))
+        try:
+            remove(join(_dir, "server.sqlite"))
+        except FileNotFoundError:
+            pass
 
         try:
             makedirs(_dir)
