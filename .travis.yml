@@ -10,10 +10,8 @@ install:
   - pip install codecov
 
 script:
-  - python tests/test_server.py
-  - python tests/test_database.py
-  - coverage run tests/test_server.py
-  - coverage run tests/test_database.py
+- python tests/*.py
+- coverage run tests/*.py
 
 after_success:
   - codecov
