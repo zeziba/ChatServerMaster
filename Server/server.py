@@ -2,7 +2,11 @@ import argparse
 import asyncio
 from os import path as ospath
 
-import database_server
+try:
+    from . import database_server
+except ImportError:
+    import database_server
+
 import websockets
 
 

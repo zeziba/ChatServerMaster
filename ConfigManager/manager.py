@@ -33,6 +33,11 @@ default_name = "default_config.ini"
 
 
 def create_config(name: str = join(__home, default_name), default_con: dict = default_config):
+    from os import mkdir
+    try:
+        mkdir("\\".join(name.split("\\")[:-1]))
+    except FileExistsError:
+        pass
     with open(name, "w+") as file:
         temp = configparser.ConfigParser()
         for header in default_con.keys():
