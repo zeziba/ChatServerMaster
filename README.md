@@ -5,7 +5,7 @@
 [![ForTheBadge powered-by-electricity](http://ForTheBadge.com/images/badges/powered-by-electricity.svg)](http://ForTheBadge.com)
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
-###Mission Statement
+### Mission Statement
 
 The is an open source version of a chat server and client, the chat server will save all input from the users with the option
 to disable this feature.
@@ -19,7 +19,7 @@ Features to be implemented:
 *Encrypted data streams
 *Database to store chats
 
-###Installation
+### Installation
 
 To install the server follow these steps
  
