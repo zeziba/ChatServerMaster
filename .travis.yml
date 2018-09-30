@@ -12,9 +12,9 @@ install:
   - pip install -r requirements.txt
 
 script:
-- pytest -m ConfigManger/
-- pytest -m Server/
-- pytest -m tests/
+- pytest --cov=ChatServerMaster ConfigManger/
+- pytest --cov=ChatServerMaster Server/
+- pytest --cov=ChatServerMaster tests/
 
 after_success:
 - coveralls
