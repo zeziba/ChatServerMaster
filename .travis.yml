@@ -11,7 +11,11 @@ install:
 
 script:
 - python tests/*.py
+- python Server/*.py
+- python ConfigManager/*.py
 - coverage run tests/*.py
+- coverage run Server/*.py
+- coverage run ConfigManager/*.py
 
 after_success:
   - codecov
