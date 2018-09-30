@@ -133,6 +133,3 @@ class UserManager:
             while _data:
                 yield security.verify(pwd, _data.pop())
 
-
-if __name__ == "__main__":
-    pass
