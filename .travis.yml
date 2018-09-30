@@ -13,7 +13,7 @@ install:
 
 script:
 - python -m pytest ./tests/*
-- coverage run --source=Server *
+- coverage run --source=tests/ <run_tests>
 
 after_success:
 - coveralls
