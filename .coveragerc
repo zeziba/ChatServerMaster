@@ -7,6 +7,8 @@ omit =
     *LICENSE*
     *.txt*
     *setup.py*
-    *.yml*
-    *.github/*
-    *.md*
+    *?.yml*
+    */github/*
+    *?.md*
+    */tests/*
+    */doc/*
