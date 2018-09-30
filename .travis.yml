@@ -15,7 +15,7 @@ script:
 - python tests/*.py
 - python Server/*.py
 - python ConfigManager/*.py
-- nosetests --with-coverage
+- nosetests --with-coverage -w ./
 
 after_success:
 - coveralls
