@@ -13,7 +13,7 @@ install:
 
 script:
 - python -m pytest ./tests/*
-- coverage run --source ChatServerMaster -m unittest discover && coverage report
+- coverage run --source tests -m unittest discover && coverage report
 
 after_success:
 - coveralls
