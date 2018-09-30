@@ -12,3 +12,5 @@ omit =
     *?.md*
     */tests/*
     */doc/*
+    */env/*
+    */Win*/*
