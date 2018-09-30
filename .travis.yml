@@ -14,7 +14,9 @@ install:
 script:
 - python -m pytest ./tests/*
 - coverage run --source tests -m unittest discover
+- coverage report -m
 - coverage run --source Server -m unittest discover
+- coverage report -m
 - coverage run --source ConfigManager -m unittest discover
 - coverage report -m
 
