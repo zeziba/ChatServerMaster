@@ -1,12 +1,12 @@
-[report]
+[run]
 source = ChatServerMaster
 omit =
     */python?.?/*
     */site-packages/nose/*
     *__init__*
     *LICENSE*
-    *?.txt*
+    *.txt*
     *setup.py*
-    *?.yml*
-    *.github/?*
-    *?.md*
+    *.yml*
+    *.github/*
+    *.md*
