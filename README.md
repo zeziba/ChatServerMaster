@@ -28,7 +28,7 @@ To install the server follow these steps
  3. `python3 -m pip install setup.py`
  
  
- ###Using the Chat Server
+### Using the Chat Server
  
  Once the program is installed then the server can be launched with
  `python server.py <IP> <PORT>`
