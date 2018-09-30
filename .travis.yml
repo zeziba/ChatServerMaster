@@ -13,7 +13,7 @@ install:
 
 script:
 - python -m pytest ./tests/*
-- nose --with-coverage tests/
+- nosetests --with-coverage tests/
 
 after_success:
 - coveralls
