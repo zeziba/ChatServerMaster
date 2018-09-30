@@ -47,6 +47,11 @@ class TestMethods(unittest.TestCase):
 
         self.assertEqual(data, str(data_uncompressed.decode('utf-8')))
 
+    def test_compression_utf8len(self):
+        from Server import compression
+
+        self.assertEquals(len("abc"), compression.utf8len("abc"))
+
 
 if __name__ == "_main__":
     unittest.main()
