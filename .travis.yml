@@ -6,14 +6,14 @@ python:
   - 3.6
 
 before_script:
-- pip install coveralls coverage setuptools nose
+- pip install coveralls coverage setuptools
 
 install:
   - pip install -r requirements.txt
 
 script:
 - python -m pytest ./tests/*
-- nosetests --with-coverage tests/
+- coverage run --source=Server *
 
 after_success:
 - coveralls
