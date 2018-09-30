@@ -6,7 +6,7 @@ python:
   - 3.6
 
 before_script:
-- pip install coveralls coverage setuptools nose
+- pip install coveralls coverage setuptools
 
 install:
   - pip install -r requirements.txt
@@ -15,7 +15,9 @@ script:
 - python tests/*.py
 - python Server/*.py
 - python ConfigManager/*.py
-- nosetests --with-coverage -w "./"
+- pytest --cov=ChatServerMaster -m ConfigManger
+- pytest --cov=ChatServerMaster -m Server
+- pytest --cov=ChatServerMaster -m tests
 
 after_success:
 - coveralls
