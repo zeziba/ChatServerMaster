@@ -12,8 +12,8 @@ install:
   - pip install -r requirements.txt
 
 script:
-- pytest --cov=ChatServerMaster ConfigManger/
-- pytest --cov=ChatServerMaster Server/
+- pytest --with-coverage ConfigManger/
+- pytest --with-coverage Server/
 - pytest --cov=ChatServerMaster tests/
 
 after_success:
