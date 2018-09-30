@@ -5,17 +5,17 @@ language: python
 python:
   - 3.6
 
+before_script:
+- pip install coveralls coverage setuptools nose
+
 install:
   - pip install -r requirements.txt
-  - pip install codecov
 
 script:
 - python tests/*.py
 - python Server/*.py
 - python ConfigManager/*.py
-- coverage run tests/*.py
-- coverage run Server/*.py
-- coverage run ConfigManager/*.py
+- nosetest --with-coverage
 
 after_success:
-  - codecov
+- coveralls
