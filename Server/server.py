@@ -34,7 +34,6 @@ class Server:
 
             print("USER: {} @ {}, Message: {}".format(websocket.origin, "{}:{}".
                                                       format(websocket.host, websocket.port), message))
-            # await websocket.send("Received: {}".format(message))
 
             for user in self._recently_connected:
                 await user.send("Received: {}".format(message))
