@@ -38,5 +38,9 @@ To install the server follow these steps
  IP address and port number. The server uses the websocket protocol
  so any client using that protocol is fine to use for communications.
  
+ 
+ ### Notice
+ I have stop developing this as I will be moving on to other projects for the time being. I am looking to recreate this in C++ in the near future though so that I can obtain finer control and not rely on the websockets API as it is limited in what it can do. On that note best of luck!.
+ 
 
 
