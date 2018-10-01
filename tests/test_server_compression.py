@@ -50,7 +50,7 @@ class TestMethods(unittest.TestCase):
     def test_compression_utf8len(self):
         from Server import compression
 
-        self.assertEquals(len("abc"), compression.utf8len("abc"))
+        self.assertEqual(len("abc"), compression.utf8len("abc"))
 
 
 if __name__ == "_main__":
